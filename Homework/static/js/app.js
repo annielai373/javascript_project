@@ -28,36 +28,28 @@ submit.on("click", function(){
     var inputElement = d3.select("#datetime");
     // Get the datetime value property of the datetime input element
     var inputValue = inputElement.property("value");
-    tableData = data.filter(sightings => sightings.datetime === inputValue);
-    renderTable();
 
     // Select the city input element and get the raw HTML code
     var inputElement_cty = d3.select("#city");
     // Get the city value property of the city input element
     var inputValue_cty = inputElement_cty.property("value");
-    tableData = data.filter(sightings => sightings.city === inputValue_cty);
-    renderTable();
 
     // Select the state input element and get the raw HTML code
     var inputElement_st = d3.select("#state");
     // Get the state value property of the state input element
     var inputValue_st = inputElement_st.property("value");
-    tableData = data.filter(sightings => sightings.state === inputValue_st);
-    renderTable();
 
     // Select the country input element and get the raw HTML code
     var inputElement_ctry = d3.select("#country");
     // Get the country value property of the country input element
     var inputValue_ctry = inputElement_ctry.property("value");
-    tableData = data.filter(sightings => sightings.country === inputValue_ctry);
-    renderTable();
 
     // Select the shape input element and get the raw HTML code
     var inputElement_shp = d3.select("#shape");
     // Get the shape value property of the shape input element
     var inputValue_shp = inputElement_shp.property("value");
-    tableData = data.filter(sightings => sightings.shape === inputValue_shp);
-    renderTable();
 
+    tableData = data.filter(sightings => (sightings.datetime === inputValue || inputValue === "")&&(sightings.city === inputValue_cty || inputValue_cty === "")&&(sightings.state === inputValue_st || inputValue_st === "")&&(sightings.country === inputValue_ctry || inputValue_ctry === "")&&(sightings.shape === inputValue_shp || inputValue_shp === ""));
+    renderTable();
 
 });
